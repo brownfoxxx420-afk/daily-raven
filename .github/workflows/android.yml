@@ -12,15 +12,25 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
       - name: Install dependencies
         run: npm install
+
+      - name: Create Capacitor config
+        run: |
+          cat > capacitor.config.json <<'EOF'
+          {
+            "appId": "com.dailyraven.app",
+            "appName": "Daily Raven",
+            "webDir": "."
+          }
+          EOF
 
       - name: Add Android platform
         run: npx cap add android
@@ -42,4 +52,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Daily-Raven-APK
-          path: android/app/build/outputs/apk/debug/app-debug.apkapk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
