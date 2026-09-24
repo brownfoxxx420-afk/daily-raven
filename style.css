@@ -1,0 +1,189 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Noto Sans Bengali", sans-serif;
+  background: linear-gradient(135deg, #111827, #312e81, #4c1d95);
+  color: #fff;
+  min-height: 100vh;
+}
+
+.screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.logo {
+  font-size: 75px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin: 5px 0;
+}
+
+.screen p {
+  opacity: .85;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 13px 20px;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  opacity: .9;
+}
+
+.card {
+  background: rgba(255,255,255,.10);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 18px;
+  padding: 20px;
+  margin: 15px auto;
+  max-width: 650px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 13px;
+  margin: 7px 0 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(0,0,0,.25);
+  color: white;
+  outline: none;
+}
+
+select option {
+  color: black;
+}
+
+textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: auto;
+}
+
+header h1 {
+  font-size: 25px;
+}
+
+header p {
+  margin: 5px 0;
+  opacity: .8;
+}
+
+.logout {
+  background: #dc2626;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+nav button {
+  margin: 0;
+}
+
+.page {
+  max-width: 900px;
+  margin: auto;
+  padding: 10px;
+}
+
+.task-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.task-number {
+  width: 30px;
+  font-weight: bold;
+}
+
+.task-row input {
+  margin: 0;
+}
+
+.task-row input[type="checkbox"] {
+  width: 20px;
+}
+
+.task-completed {
+  text-decoration: line-through;
+  opacity: .5;
+}
+
+.future-item,
+.money-item,
+.loan-item,
+.note-item {
+  background: rgba(0,0,0,.18);
+  padding: 12px;
+  border-radius: 12px;
+  margin: 8px 0;
+}
+
+.delete {
+  background: #dc2626;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.edit {
+  background: #059669;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  opacity: .7;
+}
+
+small {
+  position: absolute;
+  bottom: 25px;
+}
