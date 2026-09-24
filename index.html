@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Raven</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Welcome -->
+  <section id="welcomeScreen" class="screen">
+    <div class="logo">🐦‍⬛</div>
+    <h1>Daily Raven</h1>
+    <p>Welcome to Daily Raven</p>
+    <button onclick="showRegistration()">Continue</button>
+    <small>Powered By Limon</small>
+  </section>
+
+  <!-- Registration -->
+  <section id="registrationScreen" class="screen hidden">
+    <div class="card">
+      <h2>Welcome to Daily Raven 🐦‍⬛</h2>
+
+      <label>Name *</label>
+      <input id="nameInput" type="text" placeholder="Your name">
+
+      <label>Age *</label>
+      <input id="ageInput" type="number" placeholder="Your age">
+
+      <label>College / School</label>
+      <input id="schoolInput" type="text" placeholder="Optional">
+
+      <button onclick="saveRegistration()">Start Daily Raven</button>
+    </div>
+  </section>
+
+  <!-- Main App -->
+  <section id="appScreen" class="hidden">
+
+    <header>
+      <div>
+        <h1>🐦‍⬛ Daily Raven</h1>
+        <p id="welcomeUser"></p>
+      </div>
+      <button class="logout" onclick="logout()">Reset</button>
+    </header>
+
+    <nav>
+      <button onclick="openPage('tasks')">📅 কর্ম</button>
+      <button onclick="openPage('money')">💰 আয়-ব্যয়</button>
+      <button onclick="openPage('notes')">📝 নোট</button>
+    </nav>
+
+    <!-- TASKS -->
+    <main id="tasks" class="page">
+
+      <div class="card">
+        <h2>📅 দৈনিক কর্ম</h2>
+
+        <label>তারিখ নির্বাচন করুন</label>
+        <input
+          type="date"
+          id="taskDate"
+          min="2026-01-01"
+          max="2035-12-31"
+          onchange="loadTasks()"
+        >
+
+        <p id="dateMessage"></p>
+
+        <div id="taskList"></div>
+
+        <button onclick="saveTasks()">💾 Save Tasks</button>
+      </div>
+
+      <div class="card">
+        <h3>🔔 ভবিষ্যৎ কাজ</h3>
+        <p>আগামী দিনের জন্য কাজ লিখে রাখুন। নির্দিষ্ট তারিখে সেগুলো স্বয়ংক্রিয়ভাবে সামনে আসবে।</p>
+        <div id="futureTasks"></div>
+      </div>
+
+    </main>
+
+    <!-- MONEY -->
+    <main id="money" class="page hidden">
+
+      <div class="card">
+        <h2>💰 আয়-ব্যয়</h2>
+
+        <label>তারিখ</label>
+        <input type="date" id="moneyDate">
+
+        <label>ধরন</label>
+        <select id="moneyType">
+          <option value="income">আয়</option>
+          <option value="expense">ব্যয়</option>
+        </select>
+
+        <label>উৎস</label>
+        <input id="moneySource" placeholder="যেমন: বেতন / খাবার">
+
+        <label>পরিমাণ</label>
+        <input id="moneyAmount" type="number" placeholder="৳">
+
+        <button onclick="addMoney()">Add</button>
+      </div>
+
+      <div class="card">
+        <h3>📊 হিসাব</h3>
+        <div id="moneySummary"></div>
+        <div id="moneyList"></div>
+      </div>
+
+      <div class="card">
+        <h3>🤝 ধার / পাওনা</h3>
+
+        <input id="loanPerson" placeholder="কার কাছ থেকে / কাকে">
+        <input id="loanAmount" type="number" placeholder="পরিমাণ">
+        <input id="loanDate" type="date">
+
+        <select id="loanType">
+          <option value="taken">আমি নিয়েছি</option>
+          <option value="given">আমি দিয়েছি</option>
+        </select>
+
+        <button onclick="addLoan()">সংরক্ষণ</button>
+
+        <div id="loanList"></div>
+      </div>
+
+    </main>
+
+    <!-- NOTES -->
+    <main id="notes" class="page hidden">
+
+      <div class="card">
+        <h2>📝 নোট</h2>
+
+        <input id="noteTitle" placeholder="নোটের শিরোনাম">
+
+        <textarea
+          id="noteText"
+          maxlength="2000"
+          placeholder="আপনার নোট লিখুন..."
+        ></textarea>
+
+        <p><span id="charCount">0</span>/2000</p>
+
+        <button onclick="saveNote()">💾 Save Note</button>
+      </div>
+
+      <div class="card">
+        <h3>সংরক্ষিত নোট</h3>
+        <div id="noteList"></div>
+      </div>
+
+    </main>
+
+    <footer>
+      Powered By Limon
+    </footer>
+
+  </section>
+
+<script src="app.js"></script>
+</body>
+</html>
